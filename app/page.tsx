@@ -155,7 +155,7 @@ function Hero() {
         />
       </div>
 
-      <div className="relative px-6 lg:px-16 pt-20 lg:pt-32 pb-20 lg:pb-32 max-w-[1400px] mx-auto min-h-[80vh] flex flex-col justify-end">
+      <div className="relative px-6 lg:px-16 pt-20 lg:pt-24 pb-16 lg:pb-20 max-w-[1400px] mx-auto min-h-[60vh] flex flex-col justify-end">
         <span className="eyebrow-light rise">
           {heroSlides[0].eyebrow}
         </span>
@@ -204,7 +204,7 @@ function Mission() {
             Canadians and Japanese culture in Canada — and to be a gathering
             place where culture is carried forward, generation by generation.
           </p>
-          <p className="mt-8 text-[15px] text-muted leading-relaxed max-w-2xl">
+          <p className="jp-serif mt-8 text-[18px] sm:text-[22px] lg:text-[24px] leading-[1.7] text-foreground max-w-3xl">
             私たちの使命は、日系カナダ人の歴史と遺産、そしてカナダにおける日本文化を称え、保存し、共有することです。
           </p>
         </div>

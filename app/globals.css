@@ -28,6 +28,12 @@
   --color-ink: var(--ink);
   --font-sans: var(--font-inter);
   --font-serif: var(--font-cormorant);
+  --font-mincho: var(--font-mincho);
+}
+
+.jp-serif {
+  font-family: var(--font-mincho), "Shippori Mincho", "Hiragino Mincho ProN", serif;
+  font-weight: 400;
 }
 
 html {
