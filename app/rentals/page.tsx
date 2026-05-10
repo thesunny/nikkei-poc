@@ -185,7 +185,7 @@ function Hero() {
     <section className="px-8 lg:px-16 pt-12 pb-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
       <div>
         <span className="eyebrow">Rentals · Nikkei Place, Burnaby</span>
-        <h1 className="display mt-6 text-[56px] sm:text-[72px] lg:text-[88px]">
+        <h1 className="display mt-6 text-[44px] sm:text-[56px] lg:text-[64px]">
           Host your event
           <br />
           at Nikkei Place
@@ -215,7 +215,7 @@ function Hero() {
 
       <div className="relative">
         <div
-          className="image-placeholder w-full aspect-[4/5] rounded-sm"
+          className="image-placeholder w-full aspect-[4/3] rounded-sm"
           data-watermark="会場"
           role="img"
           aria-label="Hayashi Hall set with round tables for a wedding reception"
