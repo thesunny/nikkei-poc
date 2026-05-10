@@ -1,8 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+
+const img = (id: string, w = 1200) =>
+  `https://images.unsplash.com/photo-${id}?w=${w}&q=80&auto=format&fit=crop`;
 
 const exhibits = [
   {
@@ -10,24 +14,24 @@ const exhibits = [
     title: "Return to Paueru Gai",
     sub: "50 Years of Powell Street Festival",
     body: "A photo and ephemera retrospective tracing five decades of one of Vancouver's longest-running community festivals.",
-    tone: "tone-night",
-    watermark: "祭",
+    image: img("1528360983277-13d401cdc186"),
+    alt: "Lanterns lit at a Japanese street festival",
   },
   {
     eyebrow: "Permanent · Upper level",
     title: "TAIKEN",
     sub: "Generations of Resilience",
     body: "Personal stories, artefacts, and oral histories from Japanese Canadians across four generations — from settlement through internment to today.",
-    tone: "",
-    watermark: "体験",
+    image: img("1480796927426-f609979314bd"),
+    alt: "Traditional Japanese architectural detail",
   },
   {
     eyebrow: "1F wall poster · Now on view",
     title: "The Vancouver JCCA",
     sub: "Nisei Baseball Team",
     body: "A small but striking installation honouring the legendary Asahi-era ballclub and the Nisei players who carried it forward.",
-    tone: "tone-paper",
-    watermark: "野球",
+    image: img("1503899036084-c55cdd92da26"),
+    alt: "Vintage Japanese paper lanterns hung in rows",
   },
 ];
 
@@ -125,12 +129,16 @@ function Hero() {
       </div>
 
       <div>
-        <div
-          className="image-placeholder w-full aspect-[5/6] rounded-sm"
-          data-watermark="日系"
-          role="img"
-          aria-label="Visitors at the museum entrance"
-        />
+        <div className="relative w-full aspect-[5/6] rounded-sm overflow-hidden bg-[#1a0f0e]">
+          <Image
+            src={img("1545569341-9eb8b30979d9", 1400)}
+            alt="A red torii gate framed against the sky"
+            fill
+            sizes="(min-width: 1024px) 45vw, 100vw"
+            className="object-cover"
+            priority
+          />
+        </div>
       </div>
     </section>
   );
@@ -171,12 +179,15 @@ function Exhibits() {
       <ul className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-12">
         {exhibits.map((e) => (
           <li key={e.title}>
-            <div
-              className={`image-placeholder ${e.tone} w-full aspect-[4/5] rounded-sm`}
-              data-watermark={e.watermark}
-              role="img"
-              aria-label={e.title}
-            />
+            <div className="relative w-full aspect-[4/5] rounded-sm overflow-hidden bg-[#1a0f0e]">
+              <Image
+                src={e.image}
+                alt={e.alt}
+                fill
+                sizes="(min-width: 768px) 30vw, 100vw"
+                className="object-cover"
+              />
+            </div>
             <div className="mt-5 eyebrow">{e.eyebrow}</div>
             <h3 className="headline mt-3 text-[24px] sm:text-[28px]">
               {e.title}
@@ -245,12 +256,15 @@ function Visit() {
   return (
     <section className="px-8 lg:px-16 py-20 border-t border-line grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
       <div>
-        <div
-          className="image-placeholder tone-moss w-full aspect-[4/3] rounded-sm"
-          data-watermark="来館"
-          role="img"
-          aria-label="The garden at Nikkei Place"
-        />
+        <div className="relative w-full aspect-[4/3] rounded-sm overflow-hidden bg-[#131a0f]">
+          <Image
+            src={img("1492571350019-22de08371fd3", 1400)}
+            alt="A tranquil Japanese garden with a stone path"
+            fill
+            sizes="(min-width: 1024px) 45vw, 100vw"
+            className="object-cover"
+          />
+        </div>
       </div>
       <div>
         <span className="eyebrow">Plan your visit</span>

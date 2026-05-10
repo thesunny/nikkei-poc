@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
-import ConvexClientProvider from "@/components/ConvexClientProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -30,7 +29,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${cormorant.variable} antialiased`}
       >
-        <ConvexClientProvider>{children}</ConvexClientProvider>
+        {children}
       </body>
     </html>
   );
