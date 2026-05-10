@@ -1,29 +1,35 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import { IMG } from "@/components/images";
 
 const categories = [
   {
     title: "Weddings",
     sub: "Ceremony + reception",
     cap: "UP TO 380",
+    image: IMG.cherryBlossom,
   },
   {
     title: "Event halls",
     sub: "Conferences, galas, AGMs",
     cap: "UP TO 380",
+    image: IMG.architecture,
   },
   {
     title: "Birthday parties",
     sub: "Family rooms with kitchen",
     cap: "UP TO 60",
+    image: IMG.sushi,
   },
   {
     title: "Boardroom & meetings",
     sub: "Off-sites and workshops",
     cap: "UP TO 16",
+    image: IMG.bookshop,
   },
 ];
 
@@ -33,7 +39,7 @@ const rooms = [
     eyebrow: "The grand ballroom for weddings and galas",
     title: "Hayashi Hall",
     label: "Hayashi Hall",
-    tone: "tone-night",
+    image: IMG.architecture,
     body: "Our largest event space — high ceilings, sprung wood floor, full stage, and street-level access. Pairs with the Community Kitchen and Lobby for full-evening receptions.",
     stats: [
       ["Capacity", "380"],
@@ -47,7 +53,7 @@ const rooms = [
     eyebrow: "A gallery setting for receptions and lectures",
     title: "Karasawa Gallery",
     label: "Karasawa Gallery",
-    tone: "tone-stone",
+    image: IMG.lanternsRow,
     body: "A polished concrete and glass gallery on the main floor — perfect for cocktail receptions, intimate ceremonies, and book launches set among rotating exhibits.",
     stats: [
       ["Capacity", "120"],
@@ -61,7 +67,7 @@ const rooms = [
     eyebrow: "Traditional tatami space for ceremony and meetings",
     title: "Tatami Room",
     label: "Tatami Room",
-    tone: "tone-paper",
+    image: IMG.teaCeremony,
     body: "Authentic eight-mat tatami room with shoji screens and a small tokonoma alcove — used for tea ceremony, board meetings, and quiet workshops.",
     stats: [
       ["Capacity", "30"],
@@ -75,7 +81,7 @@ const rooms = [
     eyebrow: "Conference room for up to 16",
     title: "Boardroom · Kaede",
     label: "Boardroom · Kaede",
-    tone: "tone-moss",
+    image: IMG.bonsai,
     body: "A modern boardroom with built-in display, video conferencing, and whiteboard wall. Ideal for off-sites, board meetings, and small workshops.",
     stats: [
       ["Capacity", "16"],
@@ -214,12 +220,16 @@ function Hero() {
       </div>
 
       <div className="relative">
-        <div
-          className="image-placeholder w-full aspect-[4/3] rounded-sm"
-          data-watermark="会場"
-          role="img"
-          aria-label="Hayashi Hall set with round tables for a wedding reception"
-        />
+        <div className="image-frame aspect-[4/3]">
+          <Image
+            src={IMG.architecture.src}
+            alt="Hayashi Hall set with round tables for a wedding reception"
+            fill
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="object-cover"
+            priority
+          />
+        </div>
       </div>
     </section>
   );
@@ -273,12 +283,15 @@ function Rooms() {
       <div className="mt-14 grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-16">
         {rooms.map((r) => (
           <article key={r.title}>
-            <div
-              className={`image-placeholder ${r.tone} w-full aspect-[4/3] rounded-sm`}
-              role="img"
-              aria-label={r.label}
-              data-watermark={r.num}
-            />
+            <div className="image-frame aspect-[4/3]">
+              <Image
+                src={r.image.src}
+                alt={r.label}
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
+              />
+            </div>
             <div className="mt-6">
               <div className="eyebrow">
                 {r.num} · {r.eyebrow}
